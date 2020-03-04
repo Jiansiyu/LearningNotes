@@ -9,7 +9,7 @@ import operator
 import math
 
 # Number of training point
-m=10000
+m=100
 
 # generate the sigma and the mu for the random generator
 mu_1=2.0*math.pi/3.0
