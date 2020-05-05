@@ -19,7 +19,7 @@
 using namespace std;
 //using namespace arma;
 
-int L=40;
+const int L=40;
 
 
 double GEN()
@@ -183,7 +183,6 @@ sprintf(filename,"%s/T%0.2f.txt",Pathname,T);
 }
 
 int main (int argc, char **argv){
-	L=30;
 	for(double T=0.25;T<=4.1;T+=0.25){
 		GenerateSingleTDataSet(T);
 	}
