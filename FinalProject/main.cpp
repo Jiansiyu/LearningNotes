@@ -6,12 +6,13 @@
 #include <ctime>
 #include <cstdlib>
 #include <unistd.h>
-#include <armadillo>
-#include <mpi.h>
+#include<random>
+//#include <armadillo>
+//#include <mpi.h>
 
 
 using namespace std;
-using namespace arma;
+//using namespace arma;
 
 const int L=40;
 
@@ -112,7 +113,7 @@ int main(int argc, char **argv)
     {
       if(T<2.26)
 	{
-          sprintf(filename,"/scratch/sz8ea/ML2020/data/1/T%.2f.txt",T);
+          sprintf(filename,"result/T%.2f.txt",T);
 	  fout.open(filename,ios_base::out);
 	  init(LAT);
 	  MonteCarlo(1000,LAT,T);
@@ -132,7 +133,7 @@ int main(int argc, char **argv)
 	}
       else
 	{
-          sprintf(filename,"/scratch/sz8ea/ML2020/data/0/T%.2f.txt",T);
+          sprintf(filename,"result/T%.2f.txt",T);
 	  fout.open(filename,ios_base::out);
 	  init(LAT);
 	  MonteCarlo(1000,LAT,T);
