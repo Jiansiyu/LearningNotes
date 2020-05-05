@@ -147,7 +147,7 @@ sprintf(filename,"%s/T%0.2f.txt",Pathname,T);
 		    }
 		}
 		if(count%100==0)
-	std::cout<<"Current working on:"<<(double)count/10000.0<<std::flush;
+	std::cout<<"Current working on:"<<(double)count/100.0<<"%\r"<<std::flush;
 	    }
 	  fout.close();
 	}
