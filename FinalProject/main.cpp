@@ -12,7 +12,6 @@
 #include <sys/stat.h>
 #include <unistd.h>
 #include <iostream>
-#include <format>
 //#include <armadillo>
 //#include <mpi.h>
 
@@ -110,9 +109,9 @@ int sum(int LAT[L][L])
 
 void GenerateSingleTDataSet(double T, std::string DataFolder="result"){
 		int LAT[L][L]={0};
-		
-		std::string Pathname=std::format("%s/Grid%d",DataFolder.c_str(),L);
-		if (mkdir(Pathname.c_str(), S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH) == -1)
+		char Pathname[300];
+		sprintf(Pathname,"%s/Grid%d",DataFolder.c_str(),L);
+		if (mkdir(Pathname, S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH) == -1)
 			{
     		if( errno == EEXIST ) {
        	// alredy exists
@@ -122,8 +121,8 @@ void GenerateSingleTDataSet(double T, std::string DataFolder="result"){
         		throw std::runtime_exception( strerror(errno) );
     			}
 		//Generate file and save the data into the file 
-		std::string filename=std::format("%s/T%0.2f.txt",Pathname,T);
-
+		char filename[300];//=std::format("%s/T%0.2f.txt",Pathname,T);
+sprintf(filename,"%s/T%0.2f.txt",Pathname,T);
 		// generate the Data
 
 		ofstream fout;
@@ -147,7 +146,7 @@ void GenerateSingleTDataSet(double T, std::string DataFolder="result"){
 					}
 		    }
 		}
-		if(count%100=0)
+		if(count%100==0)
 	std::cout<<"Current working on:"<<(double)count/10000.0<<std::flush;
 	    }
 	  fout.close();
@@ -172,7 +171,7 @@ void GenerateSingleTDataSet(double T, std::string DataFolder="result"){
 					}
 		    }
 		}
-			if(count%100=0)
+			if(count%100==0)
 			std::cout<<"Current working on:"<<(double)count/10000.0<<std::flush;
 	    }
 	  fout.close();
