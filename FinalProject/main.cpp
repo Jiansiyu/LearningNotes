@@ -7,6 +7,12 @@
 #include <cstdlib>
 #include <unistd.h>
 #include<random>
+#include<string.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <unistd.h>
+#include <iostream>
+#include <format>
 //#include <armadillo>
 //#include <mpi.h>
 
@@ -101,6 +107,90 @@ int sum(int LAT[L][L])
   return s;
 }
 
+
+void GenerateSingleTDataSet(double T, std::string DataFolder="result"){
+		int LAT[L][L]={0};
+		
+		std::string Pathname=std::format("%s/Grid%d",DataFolder.c_str(),L);
+		if (mkdir(Pathname.c_str(), S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH) == -1)
+			{
+    		if( errno == EEXIST ) {
+       	// alredy exists
+    			} else {
+       			// something else
+        		std::cout << "cannot create sessionnamefolder error:" << strerror(errno) << std::endl;
+        		throw std::runtime_exception( strerror(errno) );
+    			}
+		//Generate file and save the data into the file 
+		std::string filename=std::format("%s/T%0.2f.txt",Pathname,T);
+
+		// generate the Data
+
+		ofstream fout;
+      if(T<2.26)
+	{ 
+	  fout.open(filename,ios_base::out);
+	  init(LAT);
+	  MonteCarlo(1000,LAT,T);
+	  for(int count=0;count<10000;count++)
+	    {
+	      MonteCarlo(100,LAT,T);
+              for(int i=0;i<L;i++)
+		{
+		  for(int j=0;j<L;j++)
+		    {
+		      fout<<LAT[i][j];
+					if (i*40+j < L*L-1){
+							fout<<'\t';
+					}else{
+						fout<<'\n';
+					}
+		    }
+		}
+		if(count%100=0)
+	std::cout<<"Current working on:"<<(double)count/10000.0<<std::flush;
+	    }
+	  fout.close();
+	}
+      else
+	{
+	  fout.open(filename,ios_base::out);
+	  init(LAT);
+	  MonteCarlo(1000,LAT,T);
+	  for(int count=0;count<10000;count++)
+	    {
+	      MonteCarlo(100,LAT,T);
+              for(int i=0;i<L;i++)
+		{
+		  for(int j=0;j<L;j++)
+		    {
+		      fout<<LAT[i][j];
+					if (i*40+j < L*L-1){
+							fout<<'\t';
+					}else{
+						fout<<'\n';
+					}
+		    }
+		}
+			if(count%100=0)
+			std::cout<<"Current working on:"<<(double)count/10000.0<<std::flush;
+	    }
+	  fout.close();
+	}
+
+}
+
+
+}
+
+int main (int argc, char **argv){
+	L=30;
+	for(double T=0.25;T<=4.1;T+=0.25){
+		GenerateSingleTDataSet(T);
+	}
+}
+
+/*
 int main(int argc, char **argv)
 {
   int LAT[L][L]={0};
@@ -108,7 +198,7 @@ int main(int argc, char **argv)
   cout<<sum(LAT)<<endl;
   char filename[100];
   ofstream fout;
-  fout.open("test.txt",ios_base::out);
+  //fout.open("test.txt",ios_base::out);
   for(double T=0.25;T<=4.1;T+=0.25)
     {
       if(T<2.26)
@@ -156,4 +246,4 @@ int main(int argc, char **argv)
 
   return 0;
 }
-
+*/
