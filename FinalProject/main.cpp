@@ -139,7 +139,7 @@ sprintf(filename,"%s/T%0.2f.txt",Pathname,T);
 		  for(int j=0;j<L;j++)
 		    {
 		      fout<<LAT[i][j];
-					if (i*40+j < L*L-1){
+					if (i*L+j < L*L-1){
 							fout<<'\t';
 					}else{
 						fout<<'\n';
@@ -164,7 +164,7 @@ sprintf(filename,"%s/T%0.2f.txt",Pathname,T);
 		  for(int j=0;j<L;j++)
 		    {
 		      fout<<LAT[i][j];
-					if (i*40+j < L*L-1){
+					if (i*L+j < L*L-1){
 							fout<<'\t';
 					}else{
 						fout<<'\n';
