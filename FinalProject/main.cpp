@@ -118,7 +118,7 @@ void GenerateSingleTDataSet(double T, std::string DataFolder="result"){
     			} else {
        			// something else
         		std::cout << "cannot create sessionnamefolder error:" << strerror(errno) << std::endl;
-        		throw std::runtime_exception( strerror(errno) );
+        		//throw std::runtime_exception( strerror(errno) );
     			}
 		//Generate file and save the data into the file 
 		char filename[300];//=std::format("%s/T%0.2f.txt",Pathname,T);
