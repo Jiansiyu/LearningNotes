@@ -19,7 +19,7 @@
 using namespace std;
 //using namespace arma;
 
-const int L=10;
+const int L=50;
 
 
 double GEN()
