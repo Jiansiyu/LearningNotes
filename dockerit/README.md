@@ -7,7 +7,7 @@ Docker is the easiest way to enable TensorFlow GPU support on Linux since only t
 
 ## Issues and Solutions
 
-##Step 1. Install NVDIA Driver
+## Step 1. Install NVDIA Driver
 The recommended way is to use your [package manager](https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html#package-manager-installation) and install the cuda-drivers package (or equivalent).
 When no packages are available, you should use an official "runfile".
 
@@ -19,7 +19,7 @@ Check the CUDA Enviroment:
 ${PATH} | grep cuda
 ```
  
-##Step 2. Install NVDIA Container Toolkit 
+## Step 2. Install NVDIA Container Toolkit 
 
 Varify the installation of the NVDIA Container Toolkit
 ```
@@ -35,11 +35,11 @@ stderr: nvidia-container-cli: initialization error: nvml error: driver/library v
 
 The NVDIA Driver although is installed. The NVDIA Driver is currently not working properly. Reboot the computer will solve this issue. 
 
-##Step 3. Pull the Tensorflow Image 
+## Step 3. Pull the Tensorflow Image 
 
 
 
-#Connect Pycharm to Tensorflow [Docker Container](https://timodenk.com/blog/connecting-pycharm-to-a-tensorflow-docker-container/#:~:text=Open%20the%20PyCharm%20preferences%20and,error%20should%20now%20be%20gone.)
+# Connect Pycharm to Tensorflow [Docker Container](https://timodenk.com/blog/connecting-pycharm-to-a-tensorflow-docker-container/#:~:text=Open%20the%20PyCharm%20preferences%20and,error%20should%20now%20be%20gone.)
 ![Docker](https://timodenk.com/blog/wp-content/uploads/2018/04/pc-tf-docker-header.png)
 
 [Timo Denk's Tutorial](https://timodenk.com/blog/connecting-pycharm-to-a-tensorflow-docker-container/#:~:text=Open%20the%20PyCharm%20preferences%20and,error%20should%20now%20be%20gone.)

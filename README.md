@@ -6,5 +6,6 @@
 
 ### google-notebook mode
 
-### Connect pychaim to the Docker Tensorflow 
+### [Connect pychaim to the Docker Tensorflow](dockerit/README.md)
+
 
