@@ -39,3 +39,10 @@ docker run --gpus all --rm nvidia/cuda nvidia-smi
 ```shell script
 sudo docker run  --gpus all --rm  gputest  python3 -c "import numba;from numba import cuda;print(numba.cuda.gpus)"
 ```
+
+If it print out the following infortion:
+```
+<Managed Device 0>
+```
+It means you have install everything successfully!!
+
