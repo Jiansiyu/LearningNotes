@@ -34,3 +34,8 @@ Only the pycharm-professional can connect to the docker image. More details plea
 ```shell script
 docker run --gpus all --rm nvidia/cuda nvidia-smi
 ```
+
+3. Check Docker Numba-CUDA
+```shell script
+sudo docker run  --gpus all --rm  gputest  python3 -c "import numba;from numba import cuda;print(numba.cuda.gpus)"
+```
