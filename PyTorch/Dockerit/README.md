@@ -25,6 +25,13 @@ This is docker image is used for the Homework of class CS4501 [Machine Learning 
 * Shalev-Shwartz and Ben-David, [Understanding Machine Learning: From Theory to Algorithms](http://www.cs.huji.ac.il/~shais/UnderstandingMachineLearning/), 2014
 * Goodfellow, Bengio and Courville, [Deep Learning](http://www.deeplearningbook.org/), 2016
 
+
+## [Official Docker Image](https://hub.docker.com/r/pytorch/pytorch)
+
+```shell script
+docker pull pytorch/pytorch
+```
+
 ## Compile cuda Docker Image
 The customized docker Image are bassed on NVIDIA CUDA docker Image. Compile Your run enviroment:
 
